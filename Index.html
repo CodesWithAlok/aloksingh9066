@@ -1,0 +1,244 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alok | Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-8px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '0.8' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(192, 132, 252, 0.3));
+            padding: 1px;
+        }
+        .gradient-border-inner {
+            background: #0f172a;
+            border-radius: inherit;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-sky-500 selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <!-- Background Glow Elements -->
+    <div class="fixed top-0 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow"></div>
+    <div class="fixed bottom-10 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none animate-pulse-glow" style="animation-delay: 1.5s;"></div>
+
+    <!-- Toast Notification Container -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-800 border border-slate-700 text-slate-200 px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-sky-400"></i>
+        <span id="toast-message" class="text-sm font-medium">Copied to clipboard!</span>
+    </div>
+
+    <!-- Header / Hero Section -->
+    <header class="w-full max-w-4xl mx-auto px-4 pt-16 pb-10 flex flex-col items-center text-center relative z-10">
+        <!-- Avatar / Initials Badge -->
+        <div class="w-28 h-28 rounded-3xl p-1 bg-gradient-to-tr from-sky-400 via-indigo-500 to-purple-500 shadow-xl shadow-sky-500/10 mb-6 animate-float">
+            <div class="w-full h-full bg-slate-900 rounded-[22px] flex items-center justify-center text-4xl font-extrabold gradient-text">
+                A
+            </div>
+        </div>
+
+        <!-- Name & Titles -->
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3">
+            Hi, I'm <span class="gradient-text">Alok</span>
+        </h1>
+        <p class="text-lg sm:text-xl font-medium text-slate-300 max-w-xl mb-2">
+            B.Tech Computer Science & Engineering (AI) Student
+        </p>
+        <div class="flex items-center gap-2 text-sm text-slate-400 bg-slate-900/80 px-4 py-1.5 rounded-full border border-slate-800 shadow-inner">
+            <i class="fa-solid fa-university text-sky-400"></i>
+            <span>Babu Banarasi Das University, Lucknow</span>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="w-full max-w-4xl mx-auto px-4 pb-16 space-y-12 relative z-10 flex-grow">
+        
+        <!-- Contact & Social Links Section -->
+        <section>
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-slate-200">
+                <i class="fa-solid fa-address-card text-sky-400"></i>
+                <span>Get in Touch</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Email Card -->
+                <a href="mailto:aloksingh2007rajpoot@gmail.com" class="glass-card p-4 rounded-2xl flex items-center gap-4 hover:border-sky-500/50 transition-all duration-300 group hover:-translate-y-1 shadow-lg">
+                    <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-envelope text-lg"></i>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <p class="text-xs text-slate-400 uppercase font-semibold tracking-wider">Email Me</p>
+                        <p class="text-sm font-medium text-slate-200 truncate">aloksingh2007rajpoot@gmail.com</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 group-hover:text-sky-400 transition-colors text-xs mr-2"></i>
+                </a>
+
+                <!-- Mobile Card -->
+                <a href="tel:+917380773306" class="glass-card p-4 rounded-2xl flex items-center gap-4 hover:border-emerald-500/50 transition-all duration-300 group hover:-translate-y-1 shadow-lg">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-phone text-lg"></i>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <p class="text-xs text-slate-400 uppercase font-semibold tracking-wider">Call Me</p>
+                        <p class="text-sm font-medium text-slate-200 truncate">+91 7380773306</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 group-hover:text-emerald-400 transition-colors text-xs mr-2"></i>
+                </a>
+
+                <!-- LinkedIn Card -->
+                <a href="https://www.linkedin.com/in/alok-singh-0b3924380?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-2xl flex items-center gap-4 hover:border-blue-500/50 transition-all duration-300 group hover:-translate-y-1 shadow-lg">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-linkedin-in text-lg"></i>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <p class="text-xs text-slate-400 uppercase font-semibold tracking-wider">LinkedIn</p>
+                        <p class="text-sm font-medium text-slate-200 truncate">Connect on LinkedIn</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 group-hover:text-blue-400 transition-colors text-xs mr-2"></i>
+                </a>
+
+                <!-- GitHub Card -->
+                <a href="https://github.com/CodesWithAlok" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-2xl flex items-center gap-4 hover:border-purple-500/50 transition-all duration-300 group hover:-translate-y-1 shadow-lg">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                        <i class="fa-brands fa-github text-lg"></i>
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <p class="text-xs text-slate-400 uppercase font-semibold tracking-wider">GitHub</p>
+                        <p class="text-sm font-medium text-slate-200 truncate">Explore Repositories</p>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-slate-500 group-hover:text-purple-400 transition-colors text-xs mr-2"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section>
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-slate-200">
+                <i class="fa-solid fa-code text-purple-400"></i>
+                <span>Skills & Expertise</span>
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <!-- Skill 1: Python Basics -->
+                <div class="gradient-border group hover:-translate-y-1 transition-all duration-300">
+                    <div class="gradient-border-inner p-5 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 text-xl font-bold shrink-0">
+                            <i class="fa-brands fa-python"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-200 text-base mb-1">Python Basics</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Fundamental programming concepts, syntax, and initial script development in Python.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 2: DSA from C -->
+                <div class="gradient-border group hover:-translate-y-1 transition-all duration-300">
+                    <div class="gradient-border-inner p-5 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400 text-xl font-bold shrink-0">
+                            <i class="fa-solid fa-cubes"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-200 text-base mb-1">Data Structures & Algorithms (DSA)</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Problem solving and implementing core data structures using the C programming language.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 3: Prompting -->
+                <div class="gradient-border group hover:-translate-y-1 transition-all duration-300">
+                    <div class="gradient-border-inner p-5 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 text-xl font-bold shrink-0">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-200 text-base mb-1">Prompting</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Designing and structuring effective prompts to leverage generative AI tools efficiently.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill 4: Basic Graphic Designing -->
+                <div class="gradient-border group hover:-translate-y-1 transition-all duration-300">
+                    <div class="gradient-border-inner p-5 flex items-start gap-4">
+                        <div class="w-12 h-12 rounded-xl bg-pink-500/10 flex items-center justify-center text-pink-400 text-xl font-bold shrink-0">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-200 text-base mb-1">Basic Graphic Designing</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">Creating clean visuals, layout aesthetics, and design concepts for digital media.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full border-t border-slate-900 bg-slate-950/80 py-6 text-center text-xs text-slate-500 relative z-10">
+        <p>© 2026 Alok • Babu Banarasi Das University, Lucknow</p>
+    </footer>
+
+    <script>
+        // Simple notification helper function if needed
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.innerText = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
+```
